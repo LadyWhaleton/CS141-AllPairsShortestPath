@@ -127,15 +127,19 @@ def main(filename,algorithm):
     
     pathLengths=[]
     if algorithm == 'b' or algorithm == 'B':
+		print "Start time: ", time.asctime(time.localtime(time.time()))
 		start=time.clock()
 		pathLengths=BellmanFord(G, V)
 		end=time.clock()
+		print "End time: ", time.asctime(time.localtime(time.time()))
 		BFTime=end-start
 		print("Bellman-Ford timing: "+str(BFTime))     
     if algorithm == 'f' or algorithm == 'F':
+		print "Start time: ", time.asctime(time.localtime(time.time()))
 		start=time.clock()
 		pathLengths=FloydWarshall(G, V)
 		end=time.clock()
+		print "End time: ", time.asctime(time.localtime(time.time()))
 		FWTime=end-start
 		print("Floyd-Warshall timing: "+str(FWTime))
     if algorithm == "both":
