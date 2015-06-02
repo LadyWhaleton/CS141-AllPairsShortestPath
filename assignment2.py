@@ -6,13 +6,8 @@ import time
 graphRE=re.compile("(\\d+)\\s(\\d+)")
 edgeRE=re.compile("(\\d+)\\s(\\d+)\\s(\\d+)")
 
-def BellmanFordHelper(G, V, E):
-	
-
 # https://www-m9.ma.tum.de/material/en/spp-bellman-ford/
-def BellmanFord(G, V, E):
-    pathPairs=[[-1 for i in range(V)] for j in range(V)]
-    
+def BellmanFord(G, V):
     # Fill in your Bellman-Ford algorithm here
     # The pathPairs will contain a matrix of path lengths:
     #    0   1   2 
@@ -21,23 +16,25 @@ def BellmanFord(G, V, E):
     # 2 x20 x21 x22
     # Where xij is the length of the shortest path between i and j
     
-    print 'vertices: ' + str(V)
-    print 'edges: ' + str(E)
+    pathPairs=[]
+    w = G[1]
+    INF = float("inf")
     
-    # from slides, W is G
-    # initialize pathPairs
-    for i in range(0,V):
-		pathPairs[i][0] = 0
-		for j in range(1,V-1):
-			# check entire graph for valid edges or not, if the edge is infinity then
-			for k in (0,V):
-				for l in (0,V):
-					if G[1][j][k] < float('inf'):
-						if pathPairs[k]
-				
-	
-	
-			
+    # all vertices are a source
+    for src in range(0,V):
+		# the below is basically bellman ford for a single source
+		d = [INF for distance in range(V)]
+		d[src] = 0	
+		
+		for i in range(1,V-1):
+			# for each edge (u,v) in E
+			for u in range(0,V):
+				for v in range(0,V):
+					if float(w[u][v]) < INF and d[v] > d[u] + float(w[u][v]):
+						d[v] = int(d[u]) + int(float(w[u][v]))
+						
+		pathPairs.append(d)	
+
     
     return pathPairs
 
@@ -130,7 +127,7 @@ def main(filename,algorithm):
     
     pathLengths=[]
     if algorithm == 'b' or algorithm == 'B':
-        pathLengths=BellmanFord(G, V, E)
+        pathLengths=BellmanFord(G, V)
     if algorithm == 'f' or algorithm == 'F':
         pathLengths=FloydWarshall(G, V)
     if algorithm == "both":
