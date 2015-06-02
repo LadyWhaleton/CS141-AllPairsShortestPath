@@ -129,8 +129,15 @@ def main(filename,algorithm):
     if algorithm == 'b' or algorithm == 'B':
 		start=time.clock()
 		pathLengths=BellmanFord(G, V)
+		end=time.clock()
+		BFTime=end-start
+		print("Bellman-Ford timing: "+str(BFTime))     
     if algorithm == 'f' or algorithm == 'F':
-        pathLengths=FloydWarshall(G, V)
+		start=time.clock()
+		pathLengths=FloydWarshall(G, V)
+		end=time.clock()
+		FWTime=end-start
+		print("Floyd-Warshall timing: "+str(FWTime))
     if algorithm == "both":
         start=time.clock()
         BellmanFord(G, V)
