@@ -31,7 +31,7 @@ def BellmanFord(G, V):
 			for u in range(0,V):
 				for v in range(0,V):
 					if float(w[u][v]) < INF and d[v] > d[u] + float(w[u][v]):
-						d[v] = int(d[u]) + int(float(w[u][v]))
+						d[v] = d[u] + int(float(w[u][v]))
 						
 		pathPairs.append(d)	
 
