@@ -132,7 +132,7 @@ def main(filename,algorithm):
         pathLengths=FloydWarshall(G, V)
     if algorithm == "both":
         start=time.clock()
-        BellmanFord(G, V, E)
+        BellmanFord(G, V)
         end=time.clock()
         BFTime=end-start
         FloydWarshall(G, V)
