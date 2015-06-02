@@ -1,0 +1,103 @@
+\documentclass[twocolumn]{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\graphicspath{{Images/}}
+\usepackage{cleveref}
+
+\title{CS141 -- Intermediate Algorithms and Data Structures\\Assignment 2 -- All
+Pairs Shortest Path}
+\author{[Your Name Here]}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Abstract}
+\textbf{\small We will be comparing the run time of two separate algorithms for determing the shortest distance between
+all pairs of vertices in a graph. The first algorithm is Bellman-Ford's, which was originally developed for
+finding the shortest path between a single source vertex and all other vertices. We will extend this algorithm to find
+all pairs shortest paths. The next algorithm is Floyd-Warshall's, which was created to solve this problem faster than
+the extended Bellman-Ford algorithm.}
+
+\section{Assignment}
+\label{sec::assignment}
+\begin{itemize}
+    \item Implement Bellman-Ford's algorithm to find the length of the path between a source (s) and all other vertices.
+    \begin{itemize}
+        \item Extend Bellman-Ford's to find the length of the paths between all pairs of vertices.
+    \end{itemize}
+    \item Implement Floyd-Warshall's algorithm to find the length of the paths between all pairs of vertices.
+    \item Calculate the run-time of all of the implemented algorithms.
+    \item Run all of the benchmarks on both "all pairs shortest path" algorithms.
+    \item Fill in the report analyzing the algorithms and their run-time.
+    \item You may remove the Assignment section (\cref{sec::assignment}) before turning in the final report
+\end{itemize}
+
+\section{Introduction}
+\begin{itemize}
+    \item What is the problem that you are solving?
+    \item What methods are you going to use to solve the problem?
+    \item Why are these good methods to use?
+    \item Why are you going to be using both of them?
+\end{itemize}
+
+\section{Bellman-Ford}
+\begin{itemize}
+    \item What is the Bellman-Ford algorithm?
+    \item Why are you using it?
+    \item How did you adapt it to work for all-pairs as opposed to single
+    source?
+    \item What is the run-time of the algorithm before and after your
+    adaptation?
+\end{itemize}
+
+\section{Floyd-Warshall}
+\begin{itemize}
+    \item What is the Floyd-Warshall algorithm?
+    \item Why are you using it?
+    \item How is it better than the Bellman-Ford algorithm?
+    \item What is the run-time of the algorithm?
+\end{itemize}
+
+\section{Results}
+\begin{itemize}
+    \item Compare and contrast the two algorithms? What makes one more suited
+    for this problem?
+    \item What are their theoretical run-times (from the previous sections) and
+    how do they compare?
+    \item What are the actual run-times that you computed? Which method is
+    better? Why?
+    \item Fill in \cref{table::run-time} with your results
+\end{itemize}
+
+% Fill in the following table
+\begin{table}
+    \caption{Run-Time Comparison}
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        &\#&Bellman-Ford&Floyd-Warshall\\
+        Benchmarks &Edges&Actual&Actual\\
+        \hline
+        input4.txt   &   5&      &      \\
+        input5.txt   &   8&      &      \\
+        input10.txt  &  16&      &      \\
+        input25.txt  &  43&      &      \\
+        input50.txt  &  93&      &      \\
+        input100.txt & 192&      &      \\
+        input250.txt & 730&      &      \\
+        input500.txt &1532&      &      \\
+        input1000.txt&2985&      &      \\
+        \hline
+    \end{tabular}
+    \label{table::run-time}
+\end{table}
+
+\section{Conclusions}
+\begin{itemize}
+    \item What did you find difficult about the assignment?
+    \item What did you learn?
+    \item What is one real-world problem that you think each of these problems
+    would be good at solving?
+\end{itemize}
+
+\end{document}
