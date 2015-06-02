@@ -128,7 +128,7 @@ def main(filename,algorithm):
     pathLengths=[]
     if algorithm == 'b' or algorithm == 'B':
 		start=time.clock()
-        pathLengths=BellmanFord(G, V)
+		pathLengths=BellmanFord(G, V)
     if algorithm == 'f' or algorithm == 'F':
         pathLengths=FloydWarshall(G, V)
     if algorithm == "both":
